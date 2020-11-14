@@ -39,25 +39,30 @@
     \dot{\vec{\Omega}} = \frac12 \vec{\nabla}\times\vec{u}
 \end{gather*}
 \begin{gather*}
+    \textbf{\small Continuity} \\
     \frac{D\rho}{Dt} + \rho \vec{\nabla} \cdot \vec{u} = 0
 \end{gather*}
 \begin{gather*}
+    \textbf{\small Momentum conservation} \\
     \rho \frac{Du_i}{Dt} = \frac{\partial \sigma_{ij}}{\partial x_j} + \rho f_i
 \end{gather*}
 \begin{gather*}
     \rho \frac{DE}{Dt} = \frac{\partial}{\partial x_j}(\sigma_{ij} u_i) + \rho f_i u_i - \frac{\partial q_k}{\partial x_k}
 \end{gather*}
 \begin{gather*}
+    \textbf{\small Total energy} \\
     E = e + \frac12 u_i u_i
 \end{gather*}
 \begin{gather*}
     \sigma_{ij} = -p \delta_{ij} + \sigma_{ij}'
 \end{gather*}
 \begin{gather*}
+    \textbf{\small Energy equation} \\
     \rho \frac{De}{Dt} + p\frac{\partial u_k}{\partial x_k} =
     \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
 \end{gather*}
 \begin{gather*}
+    \textbf{\small Enthalpy equation} \\
     \rho \frac{Dh}{Dt} - \frac{Dp}{Dt} =
     \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
 \end{gather*}
@@ -103,5 +108,7 @@
     \frac{d\theta}{dx} + \left( 2 + \frac{\delta^*}{\theta} \right)\frac{\theta}{U}\frac{dU}{dx} =
     \frac{C_f}{2}
 \end{gather*}
+\newpage
+%TODO: Add Navier Stokes equation
 \end{multicols}
 \end{document}
