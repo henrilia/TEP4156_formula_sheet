@@ -24,6 +24,7 @@
 
 \begin{multicols*}{2}
     \begin{gather*}
+        \textbf{\small Velocity derivative} \\
         \derivative{ u_i}{x_j} = \dot{\varepsilon}_{ij} + \dot{\Omega}_{ij}
     \end{gather*}
     \begin{gather*}
@@ -134,6 +135,10 @@
         \nu = \frac{\mu}{\rho}
     \end{gather*}
     \begin{gather*}
+        \textbf{\small Mechanical pressure} \\
+        \bar{P} = P - \mu_B\derivative{u_k}{x_k}
+    \end{gather*}
+    \begin{gather*}
         \textbf{\small Navier-Stokes equation} \\
         \derivative{ \vec{u}}{t} + (\vec{u}\cdot \vec{\nabla})\vec{u} = 
         -\frac{1}{\rho}\vec{\nabla}P + \nu \vec{\nabla}^2 \vec{u} + \vec{g}
@@ -163,7 +168,16 @@
 \end{center}
 \begin{multicols*}{2}
     \begin{gather*}
-        \frac12 C_f = \derivative{\theta}{x}    
+        \textbf{\small Kármán integral relation} \\
+        \frac12 C_f = \derivative{\theta}{x} + (2 + H) \frac{\theta}{U} \derivative{U}{x}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Orr-Sommerfeld equation} \\
+        (U - c)(v''-\alpha v) - U''v + \frac{i\nu}{\alpha}(v''''-2\alpha^2v''+\alpha^4v) = 0
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Inviscid Orr-Sommerfeld equation} \\
+        (U - c)(v''-\alpha^2 v) - U''v = 0 \quad \text{($\alpha^2$ ?)}
     \end{gather*}
 \end{multicols*}
 
