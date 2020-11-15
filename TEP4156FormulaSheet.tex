@@ -13,6 +13,8 @@
 \markright{Henrik Lia \hfill Fall 2020}
 \pagenumbering{gobble}
 
+\newcommand{\derivative}[2]{\frac{\partial #1}{\partial #2}}
+
 \begin{document}
 \begin{center}
     \Large
@@ -160,9 +162,9 @@
     \vspace{0.5cm}
 \end{center}
 \begin{multicols*}{2}
-\newpage
-%TODO: Add Navier Stokes equation
-\end{multicols}
+    \begin{gather*}
+        \frac12 C_f = \derivative{\theta}{x}    
+    \end{gather*}
 \end{multicols*}
 
 TODO: Add Einstein notation, kronecker delta, levi civita, $\sigma '$, Couette flow?, Bessel functions
