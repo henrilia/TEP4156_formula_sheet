@@ -20,95 +20,150 @@
     \vspace{0.5cm}
 \end{center}
 
-\begin{multicols}{2}
-\begin{gather*}
-    \frac{\partial u_i}{\partial x_j} = \dot{\varepsilon}_{ij} + \dot{\Omega}_{ij}
-\end{gather*}
-\begin{gather*}
-    \dot{\varepsilon}_{ij} = \frac12\left( \frac{\partial u_i}{\partial x_j} +
-    \frac{\partial u_j}{\partial x_i}\right)
-\end{gather*}
-\begin{gather*}
-    \dot{\Omega}_{ij} = \frac12\left( \frac{\partial u_i}{\partial x_j} -
-    \frac{\partial u_j}{\partial x_i}\right)
-\end{gather*}
-\begin{gather*}
-    (\dot{\vec{\Omega}})_k = \frac12 \epsilon_{ijk}\dot{\Omega}_{ij}
-\end{gather*}
-\begin{gather*}
-    \dot{\vec{\Omega}} = \frac12 \vec{\nabla}\times\vec{u}
-\end{gather*}
-\begin{gather*}
-    \textbf{\small Continuity} \\
-    \frac{D\rho}{Dt} + \rho \vec{\nabla} \cdot \vec{u} = 0
-\end{gather*}
-\begin{gather*}
-    \textbf{\small Momentum conservation} \\
-    \rho \frac{Du_i}{Dt} = \frac{\partial \sigma_{ij}}{\partial x_j} + \rho f_i
-\end{gather*}
-\begin{gather*}
-    \rho \frac{DE}{Dt} = \frac{\partial}{\partial x_j}(\sigma_{ij} u_i) + \rho f_i u_i - \frac{\partial q_k}{\partial x_k}
-\end{gather*}
-\begin{gather*}
-    \textbf{\small Total energy} \\
-    E = e + \frac12 u_i u_i
-\end{gather*}
-\begin{gather*}
-    \sigma_{ij} = -p \delta_{ij} + \sigma_{ij}'
-\end{gather*}
-\begin{gather*}
-    \textbf{\small Energy equation} \\
-    \rho \frac{De}{Dt} + p\frac{\partial u_k}{\partial x_k} =
-    \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
-\end{gather*}
-\begin{gather*}
-    \textbf{\small Enthalpy equation} \\
-    \rho \frac{Dh}{Dt} - \frac{Dp}{Dt} =
-    \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
-\end{gather*}
-\begin{gather*}
-    \sigma_{ij}' \frac{\partial u_i}{\partial x_j} \geq 0
-\end{gather*}
-\begin{gather*}
-    q_k = -k\frac{\partial T}{\partial x_k}
-\end{gather*}
-\begin{gather*}
-    \sigma_{ij}' = \mu \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}
-    - \frac23\delta_{ij}\frac{\partial u_k}{\partial x_k} \right) + \mu_B\delta_{ij}\frac{\partial u_k}{\partial x_k}
-\end{gather*}
-\begin{gather*}
-    \text{Re} \rightarrow 0: \quad \vec{\nabla}p = \mu \vec{\nabla}^2 \vec{u}
-\end{gather*}
-\begin{gather*}
-    u\frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} =
-    U \frac{dU}{dx} + \nu \frac{\partial^2 u}{\partial y^2}
-\end{gather*}
-\begin{gather*}
-    u\frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} =
-    \frac{k}{\rho c_p} \frac{\partial^2 T}{\partial y^2}
-\end{gather*}
-\begin{gather*}
-    \textbf{\small Displacement thickness} \\
-    \delta^* = \int_0^\infty\left( 1 - \frac{u}{U} \right)dy
-\end{gather*}
-\begin{gather*}
-    \textbf{\small Momentum thickness} \\
-    \theta = \int_0^\infty \frac{u}{U}\left( 1 - \frac{u}{U} \right)dy
-\end{gather*}
-\begin{gather*}
-    \psi(x,y) = \sqrt{\frac{2}{m+1}\nu x U}f(\eta)
-\end{gather*}
-\begin{gather*}
-    \eta = y \sqrt{\frac{m+1}{2}\frac{U}{\nu x}}
-\end{gather*}
-\begin{gather*}
-    f''' + ff'' + \frac{2m}{m+1}(1-f'^2)=0
-\end{gather*}
-\begin{gather*}
-    \frac{d\theta}{dx} + \left( 2 + \frac{\delta^*}{\theta} \right)\frac{\theta}{U}\frac{dU}{dx} =
-    \frac{C_f}{2}
-\end{gather*}
+\begin{multicols*}{2}
+    \begin{gather*}
+        \frac{\partial u_i}{\partial x_j} = \dot{\varepsilon}_{ij} + \dot{\Omega}_{ij}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small 2D Shear angle rate} \\
+        \dot{\varepsilon}_{ij} = \frac12\left( \frac{\partial u_i}{\partial x_j} +
+        \frac{\partial u_j}{\partial x_i}\right)
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small 2D Rotation angle rate} \\
+        \dot{\Omega}_{ij} = \frac12\left( \frac{\partial u_i}{\partial x_j} -
+        \frac{\partial u_j}{\partial x_i}\right)
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small 3D Rotation angle rate} \\
+        (\dot{\vec{\Omega}})_k = \frac12 \epsilon_{ijk}\dot{\Omega}_{ij}
+    \end{gather*}
+    \begin{gather*}
+        \dot{\vec{\Omega}} = \frac12 \vec{\nabla}\times\vec{u}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Mass conservation} \\
+        \frac{D\rho}{Dt} + \rho \vec{\nabla} \cdot \vec{u} = 0
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Momentum conservation} \\
+        \rho \frac{Du_i}{Dt} = \frac{\partial \sigma_{ij}}{\partial x_j} + \rho f_i
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Energy conservtion} \\
+        \rho \frac{DE}{Dt} = \frac{\partial}{\partial x_j}(\sigma_{ij} u_i) + \rho f_i u_i - \frac{\partial q_k}{\partial x_k}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Total energy} \\
+        E = e + \frac12 u_i u_i
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Deformation} \\
+        \sigma_{ij} = -p \delta_{ij} + \sigma_{ij}'
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Energy equation} \\
+        \rho \frac{De}{Dt} + p\frac{\partial u_k}{\partial x_k} =
+        \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Enthalpy equation} \\
+        \rho \frac{Dh}{Dt} - \frac{Dp}{Dt} =
+        \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
+    \end{gather*}
+    \begin{gather*}
+        \sigma_{ij}' \frac{\partial u_i}{\partial x_j} \geq 0
+    \end{gather*}
+    \begin{gather*}
+        q_k = -k\frac{\partial T}{\partial x_k}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Deformation law for newtonian fluids} \\
+        \sigma_{ij}' = \mu \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}
+        - \frac23\delta_{ij}\frac{\partial u_k}{\partial x_k} \right) + \mu_B\delta_{ij}\frac{\partial u_k}{\partial x_k}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Creeping flow} \\
+        \text{Re} \rightarrow 0: \quad \vec{\nabla}p = \mu \vec{\nabla}^2 \vec{u}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Boundary layer equation} \\
+        u\frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} =
+        U \frac{dU}{dx} + \nu \frac{\partial^2 u}{\partial y^2}
+    \end{gather*}
+    \begin{gather*}
+        u\frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} =
+        \frac{k}{\rho c_p} \frac{\partial^2 T}{\partial y^2}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Displacement thickness} \\
+        \delta^* = \int_0^\infty\left( 1 - \frac{u}{U} \right)dy
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Momentum thickness} \\
+        \theta = \int_0^\infty \frac{u}{U}\left( 1 - \frac{u}{U} \right)dy
+    \end{gather*}
+    \begin{gather*}
+        \psi(x,y) = \sqrt{\frac{2}{m+1}\nu x U}f(\eta)
+    \end{gather*}
+    \begin{gather*}
+        \eta = y \sqrt{\frac{m+1}{2}\frac{U}{\nu x}}
+    \end{gather*}
+    \begin{gather*}
+        f''' + ff'' + \frac{2m}{m+1}(1-f'^2)=0
+    \end{gather*}
+    \begin{gather*}
+        \frac{d\theta}{dx} + \left( 2 + \frac{\delta^*}{\theta} \right)\frac{\theta}{U}\frac{dU}{dx} =
+        \frac{C_f}{2}
+    \end{gather*}
+\end{multicols*}
+\begin{center}
+    \Large
+    \textbf{Additional formulas}
+    \vspace{0.5cm}
+\end{center}
+\begin{multicols*}{2}
+    \begin{gather*}
+        \textbf{\small Bulk viscosity} \\
+        \mu_B = \lambda + \frac23 \mu
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Dynamic viscosity} \\
+        \nu = \frac{\mu}{\rho}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Navier-Stokes equation} \\
+        \frac{\partial \vec{u}}{\partial t} + (\vec{u}\cdot \vec{\nabla})\vec{u} = 
+        -\frac{1}{\rho}\vec{\nabla}P + \nu \vec{\nabla}^2 \vec{u} + \vec{g}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Skin friction coefficient} \\
+        C_f = \frac{\tau_w}{\frac12 \rho U^2}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Drag coefficient (flat plate)} \\
+        C_D = \frac{1}{L}\int_0^L C_f dx, \quad C_f = 2\frac{\partial \theta}{\partial x}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Shape factor} \\
+        H = \frac{\delta *}{\theta}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Laminar boundary layer} \\
+        \delta << L, \\
+        \text{Re} >> 1
+    \end{gather*}
+\end{multicols*}
+\begin{center}
+    \Large
+    \textbf{Advanced formulas}
+    \vspace{0.5cm}
+\end{center}
+\begin{multicols*}{2}
 \newpage
 %TODO: Add Navier Stokes equation
 \end{multicols}
+\end{multicols*}
+
+TODO: Add Einstein notation, kronecker delta, levi civita, $\sigma '$, Couette flow?, Bessel functions
 \end{document}
