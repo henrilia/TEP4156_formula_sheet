@@ -24,17 +24,17 @@
 
 \begin{multicols*}{2}
     \begin{gather*}
-        \frac{\partial u_i}{\partial x_j} = \dot{\varepsilon}_{ij} + \dot{\Omega}_{ij}
+        \derivative{ u_i}{x_j} = \dot{\varepsilon}_{ij} + \dot{\Omega}_{ij}
     \end{gather*}
     \begin{gather*}
         \textbf{\small 2D Shear angle rate} \\
-        \dot{\varepsilon}_{ij} = \frac12\left( \frac{\partial u_i}{\partial x_j} +
-        \frac{\partial u_j}{\partial x_i}\right)
+        \dot{\varepsilon}_{ij} = \frac12\left( \derivative{ u_i}{x_j} +
+        \derivative{ u_j}{x_i}\right)
     \end{gather*}
     \begin{gather*}
         \textbf{\small 2D Rotation angle rate} \\
-        \dot{\Omega}_{ij} = \frac12\left( \frac{\partial u_i}{\partial x_j} -
-        \frac{\partial u_j}{\partial x_i}\right)
+        \dot{\Omega}_{ij} = \frac12\left( \derivative{ u_i}{x_j} -
+        \derivative{ u_j}{x_i}\right)
     \end{gather*}
     \begin{gather*}
         \textbf{\small 3D Rotation angle rate} \\
@@ -49,11 +49,11 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Momentum conservation} \\
-        \rho \frac{Du_i}{Dt} = \frac{\partial \sigma_{ij}}{\partial x_j} + \rho f_i
+        \rho \frac{Du_i}{Dt} = \derivative{ \sigma_{ij}}{x_j} + \rho f_i
     \end{gather*}
     \begin{gather*}
         \textbf{\small Energy conservtion} \\
-        \rho \frac{DE}{Dt} = \frac{\partial}{\partial x_j}(\sigma_{ij} u_i) + \rho f_i u_i - \frac{\partial q_k}{\partial x_k}
+        \rho \frac{DE}{Dt} = \derivative{}{x_j}(\sigma_{ij} u_i) + \rho f_i u_i - \derivative{ q_k}{x_k}
     \end{gather*}
     \begin{gather*}
         \textbf{\small Total energy} \\
@@ -65,24 +65,24 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Energy equation} \\
-        \rho \frac{De}{Dt} + p\frac{\partial u_k}{\partial x_k} =
-        \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
+        \rho \frac{De}{Dt} + p\derivative{ u_k}{x_k} =
+        \sigma_{ij}' \derivative{ u_i}{x_j}  - \derivative{ q_k}{x_k}
     \end{gather*}
     \begin{gather*}
         \textbf{\small Enthalpy equation} \\
         \rho \frac{Dh}{Dt} - \frac{Dp}{Dt} =
-        \sigma_{ij}' \frac{\partial u_i}{\partial x_j}  - \frac{\partial q_k}{\partial x_k}
+        \sigma_{ij}' \derivative{ u_i}{x_j}  - \derivative{ q_k}{x_k}
     \end{gather*}
     \begin{gather*}
-        \sigma_{ij}' \frac{\partial u_i}{\partial x_j} \geq 0
+        \sigma_{ij}' \derivative{ u_i}{x_j} \geq 0
     \end{gather*}
     \begin{gather*}
-        q_k = -k\frac{\partial T}{\partial x_k}
+        q_k = -k\derivative{ T}{x_k}
     \end{gather*}
     \begin{gather*}
         \textbf{\small Deformation law for newtonian fluids} \\
-        \sigma_{ij}' = \mu \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}
-        - \frac23\delta_{ij}\frac{\partial u_k}{\partial x_k} \right) + \mu_B\delta_{ij}\frac{\partial u_k}{\partial x_k}
+        \sigma_{ij}' = \mu \left( \derivative{ u_i}{x_j} + \derivative{ u_j}{x_i}
+        - \frac23\delta_{ij}\derivative{ u_k}{x_k} \right) + \mu_B\delta_{ij}\derivative{ u_k}{x_k}
     \end{gather*}
     \begin{gather*}
         \textbf{\small Creeping flow} \\
@@ -90,12 +90,12 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Boundary layer equation} \\
-        u\frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} =
-        U \frac{dU}{dx} + \nu \frac{\partial^2 u}{\partial y^2}
+        u\derivative{ u}{x} + v \derivative{ u}{y} =
+        U \frac{dU}{dx} + \nu \derivative{^2 u}{y^2}
     \end{gather*}
     \begin{gather*}
-        u\frac{\partial T}{\partial x} + v \frac{\partial T}{\partial y} =
-        \frac{k}{\rho c_p} \frac{\partial^2 T}{\partial y^2}
+        u\derivative{ T}{x} + v \derivative{ T}{y} =
+        \frac{k}{\rho c_p} \derivative{^2 T}{y^2}
     \end{gather*}
     \begin{gather*}
         \textbf{\small Displacement thickness} \\
@@ -135,7 +135,7 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Navier-Stokes equation} \\
-        \frac{\partial \vec{u}}{\partial t} + (\vec{u}\cdot \vec{\nabla})\vec{u} = 
+        \derivative{ \vec{u}}{t} + (\vec{u}\cdot \vec{\nabla})\vec{u} = 
         -\frac{1}{\rho}\vec{\nabla}P + \nu \vec{\nabla}^2 \vec{u} + \vec{g}
     \end{gather*}
     \begin{gather*}
@@ -144,7 +144,7 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Drag coefficient (flat plate)} \\
-        C_D = \frac{1}{L}\int_0^L C_f dx, \quad C_f = 2\frac{\partial \theta}{\partial x}
+        C_D = \frac{1}{L}\int_0^L C_f dx, \quad C_f = 2\derivative{ \theta}{x}
     \end{gather*}
     \begin{gather*}
         \textbf{\small Shape factor} \\
