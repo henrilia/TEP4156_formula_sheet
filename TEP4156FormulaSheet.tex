@@ -78,6 +78,7 @@
         \sigma_{ij}' \derivative{ u_i}{x_j} \geq 0
     \end{gather*}
     \begin{gather*}
+        \textbf{\small Fourier's law} \\
         q_k = -k\derivative{ T}{x_k}
     \end{gather*}
     \begin{gather*}
@@ -95,6 +96,7 @@
         U \frac{dU}{dx} + \nu \derivative{^2 u}{y^2}
     \end{gather*}
     \begin{gather*}
+        \textbf{\small Steady heat equation} \\
         u\derivative{ T}{x} + v \derivative{ T}{y} =
         \frac{k}{\rho c_p} \derivative{^2 T}{y^2}
     \end{gather*}
@@ -113,6 +115,7 @@
         \eta = y \sqrt{\frac{m+1}{2}\frac{U}{\nu x}}
     \end{gather*}
     \begin{gather*}
+        \textbf{\small Falkner Skan equation} \\
         f''' + ff'' + \frac{2m}{m+1}(1-f'^2)=0
     \end{gather*}
     \begin{gather*}
@@ -126,6 +129,10 @@
     \vspace{0.5cm}
 \end{center}
 \begin{multicols*}{2}
+    \begin{gather*}
+        \textbf{\small Fluid enthalpy} \\
+        h = e + \frac{p}{\rho}
+    \end{gather*}
     \begin{gather*}
         \textbf{\small Bulk viscosity} \\
         \mu_B = \lambda + \frac23 \mu
@@ -157,8 +164,19 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Laminar boundary layer} \\
-        \delta << L, \\
-        \text{Re} >> 1
+        \delta \ll L, \\
+        \text{Re} \gg 1
+    \end{gather*}
+\end{multicols*}
+\begin{center}
+    \Large
+    \textbf{Notation}
+    \vspace{0.5cm}
+\end{center}
+\begin{multicols*}{2}
+    \begin{gather*}
+        \textbf{\small Material derivative} \\
+        \frac{D}{Dt} = \derivative{}{t} + (\vec{u}\cdot \vec{\nabla})
     \end{gather*}
 \end{multicols*}
 \begin{center}
@@ -181,5 +199,5 @@
     \end{gather*}
 \end{multicols*}
 
-TODO: Add Einstein notation, kronecker delta, levi civita, $\sigma '$, Couette flow?, Bessel functions
+TODO: Add Einstein notation, kronecker delta, levi civita, $\sigma '$, Couette flow?, Bessel functions, $\lambda$, Prandtl og gutta
 \end{document}
