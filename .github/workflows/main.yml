@@ -26,3 +26,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: TEP4156FormulaSheet.tex
+      - uses: actions/upload-artifact@v2
+        with:
+          name: TEP4156FormulaSheet
+          path: TEP4156FormulaSheet.pdf
