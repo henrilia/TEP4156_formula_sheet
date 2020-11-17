@@ -176,10 +176,37 @@
     \textbf{Notation}
     \vspace{0.5cm}
 \end{center}
-\begin{multicols*}{2}
+\begin{multicols*}{1}
     \begin{gather*}
         \textbf{\small Material derivative} \\
         \frac{D}{Dt} = \derivative{}{t} + (\vec{u}\cdot \vec{\nabla})
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Levi-Civita symbol} \\
+        \epsilon_{ijk} = 
+        \begin{cases}
+            1, \quad \text{if $ijk = 123$ or cyclic permutation} \\
+            -1, \quad \text{if $ijk = 321$ or cyclic permutation} \\
+            0, \quad \text{otherwise}
+        \end{cases}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Einstein summation} \\
+        \text{An index that appears twice is summed over} \\
+        \text{Example:} \\
+        a_i b_i = \sum_{i=1}^3 a_i b_i = a_1 b_1 + a_2 b_2 + a_3 b_3
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Kronecker delta} \\
+        \delta_{ij} = 
+        \begin{cases}
+            0, \quad \text{If $i \neq j$} \\
+            1, \quad \text{If $i = j$}
+        \end{cases}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Laplace operator} \\
+        \Delta = \nabla^2
     \end{gather*}
 \end{multicols*}
 \begin{center}
@@ -201,10 +228,10 @@
         \text{Condition 1: $U''(y_p) = 0$ } \\
         \text{Condition 2: $U''\cdot(U-U(y_p)) < 0$ somewhere } \\
         \text{We know almost 100\% that the flow is instable}\\ 
-        \text{if both conditions are met. If not, we can not draw} \\
-        \text{any conlusions.}
+        \text{if both conditions are met. If not, we can not} \\
+        \text{draw any conlusions.}
     \end{gather*}
 \end{multicols*}
 
-TODO: Add Einstein notation, kronecker delta, levi civita, $\sigma '$, Couette flow?, Bessel functions, $\lambda$, Prandtl og gutta
+TODO: Add Einstein notation, kronecker delta, $\sigma '$, Couette flow?, Bessel functions, $\lambda$, Prandtl og gutta
 \end{document}
