@@ -30,7 +30,7 @@
         \derivative{ u_i}{x_j} = \dot{\varepsilon}_{ij} + \dot{\Omega}_{ij}
     \end{gather*}
     \begin{gather*}
-        \textbf{\small 2D Shear angle rate} \\
+        \textbf{\small 2D Shear angle rate} \\ %Stefan og eksamen 2014 kaller dette strain rate tensor
         \dot{\varepsilon}_{ij} = \frac12\left( \derivative{ u_i}{x_j} +
         \derivative{ u_j}{x_i}\right)
     \end{gather*}
@@ -176,7 +176,15 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Stream function} \\
-        u = \derivative{\psi}{y}, \quad v = \derivative{\psi}{x}
+        u = \derivative{\psi}{y}, \quad v = -\derivative{\psi}{x} % Feil fortegn på v
+    \end{gather*}
+    \begin{gather*}
+        \textbf{Dissipation function: } \\ %Dissipation function from exam 2019 1d)
+        \Phi = \sigma^{'}_{ij}\derivative{u_{i}}{x_{j}}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{Vorticity vector: } \\ %Exam 2017 1c)
+        \vec{w} = \nabla \times \vec{u}
     \end{gather*}
 \end{multicols*}
 
@@ -188,7 +196,8 @@
 \end{center}
 \begin{gather*}
     \textbf{\small Material derivative} \\
-    \frac{D}{Dt} = \derivative{}{t} + (\vec{u}\cdot \vec{\nabla})
+    \frac{D}{Dt} = \derivative{}{t} + (\vec{u}\cdot \vec{\nabla}) \\ % La til indexform
+    \frac{D\vec{u}}{Dt} = \derivative{u_{i}}{t} + u_{j}\derivative{u_{i}}{x_{j}} 
 \end{gather*}
 \begin{gather*}
     \textbf{\small Levi-Civita symbol} \\
@@ -220,18 +229,130 @@
 \newpage
 
 % New page
+
 \begin{center}
     \Large
-    \textbf{Advanced formulas}
+    \textbf{Notes}
     \vspace{0.5cm}
 \end{center}
 \begin{multicols*}{2}
+    \begin{gather*}
+        \textbf{\small Strain rate tensor} \\
+        \text{Diagonal terms related to dilatation (extension) of fluis particle.} \\
+        \text{Off-diagonal terms related to shear-strain rates.} \\
+        \text{Dilatation rates $\varepsilon_{ii}$ are $\derivative{ u_i}{x_i}$}\\
+        \text{Assuming incompressible flow of Newtonian fluid gives viscous part of stress tensor $\sigma_{ij}$:} \\
+        \sigma_{ij}' = 2\mu\epsilon_{ij} \implies \sigma_{ij} = -p\delta_{ij} + 2\mu\epsilon_{ij}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Force required to pull sheet/plate with constant speed} \\
+        \text{Force balance, assuming only shear stress} \\
+        \text{Shear stress:} \\
+        \tau_{xy} = \mu(\derivative{u}{y} + \derivative{v}{x}) \approx \mu\derivative{u}{y} \\
+        \text{Last approximation justified by:} \\
+        \derivative{u}{x} + \derivative{v}{y} = 0 \implies v = -\int\derivative{u}{x}dy \sim \frac{U}{L}\delta \\
+        \implies \derivative{u}{y} + \derivative{v}{x} \sim \frac{U}{\delta} + \frac{\frac{\delta}{L}U}{L}, \frac{\delta}{L} << 1 \\
+        % \text{or: (exam 2015)} \\
+        % \derivative{u}{x} \sim \frac{U}{L} \text{ and } \derivative{u}{y} \sim \frac{U}{\delta}
+        % \implies \frac{\derivative{u}{x}}{\derivative{u}{y}} \sim \frac{U/L}{U/\delta} = \frac{\delta}{L} << 1 \\
+        % F_{pull} = \int_0^B\int_0^L\mu\derivative{x}{y}\arrowvert_{y = 0} dxdy
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Disturbances} \\
+        \text{We have a disturbance on the form: } \\
+        \hat{v}(x,y,t) = v(y)exp(i\alpha(x - ct)) \\
+        \text{Disturbace is assumed small, periodic on the form of a wave in x-direction. Amplitude only dependant of y.} \\
+        \text{c: propagation speed (complex), $\alpha$: wave number (real)}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{Differentiation:} \\
+        2u\derivative{u}{x} = \derivative{(u)^2}{x} \\
+        v\derivative{u}{y} + u\derivative{v}{y} = \derivative{(uv)}{y}
+    \end{gather*}
+    \begin{gather*}
+        \sigma_{ij}' = \sigma_{ji}' \\
+        \text{(At least for incompressible newtonian fluid, exam 2015)}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{Flow separation} \\
+        \tau_{w}\arrowvert_{xs} = 0 \\
+        \text{For Twaites this corresponds to: } \\
+        S(\lambda) = 0 \implies \lambda = -0.09 \\
+        \textbf{Backflow} \\
+        \text{If flow between horizontal parallel plates with top plate} \\
+        \text{moving, back flow occurs when shear at lower plate vanishes is zero: } \\
+        \tau_{w} = 0
+    \end{gather*}
+\end{multicols*}
+
+\begin{center}
+    \Large
+    \textbf{Types of flow}
+    \vspace{0.5cm}
+\end{center}
+\begin{multicols*}{2}
+    \begin{gather*}
+        \textbf{Free shear flow} \\
+        \text{Parallel streams} \\
+        \text{Boundary conditions:} \\
+        u_{1}(0) = u_{2}(0), \mu_{1}\derivative{u_{1}}{y}\arrowvert_{0} = \mu_{2}\derivative{u_{2}}{y}\arrowvert_{0}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{Laminar (2D) jet} \\
+        u_{max} = u(x,0) \\
+        \text{Conserved quantity: momentum flux (no external forces)} \\
+        J = \int_{-\infty}^{\infty}\rho u^{2}dy \\
+        f''' + f''f + f'^{2} = 0, f(0) = f'(0) = f''(0) = 0 \\
+        \text{Analytic solution: } \\
+        f(\eta) = 2a tanh(a\eta), a\sim\sqrt[3]{J}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{Falkner-Skan flow} \\
+        \text{Parallel flow "splitting" into two branches with angle $\theta{s}$ between them.} \\
+        f''' + ff'' + \beta(1 - f'^{2}) = 0, \beta = \frac{\theta_s}{\pi/2} = \frac{2m}{m + 1}, m = \frac{\theta_s}{\pi - \theta_s} \\
+        m = 0 \implies \text{ zero wedge angle = Blasius} \\
+        m = 1 \implies \text{ $\pi$ wedge angle = Hiemenz} \\
+        \psi = \sqrt{\frac{2}{m+1} \nu U(x) x}f(\eta), \eta = y \sqrt{\frac{m+1}{2}\frac{U(x)}{\nu x}} \\
+        \textbf{Boundary conditions:} \\
+        f(0) = f'(0) = 0, f'(\eta \rightarrow \infty) = 1 \\
+    \end{gather*}
+\end{multicols*}
+
+\begin{center}
+    \Large
+    \textbf{Stability notes}
+    \vspace{0.5cm}
+\end{center}
+\begin{multicols*}{2}
+    \begin{gather*}
+        \textbf{Reynolds number:} \\
+        Re = \frac{\rho u L}{\mu} = \frac{u L}{\nu}\\
+    \end{gather*}
+    \begin{gather*}
+        \textbf{7 step procedure:} \\
+        \text{1. We seek to examine the stability of a basic solution to the physical problem, $Q_{0}$.} \\
+        \text{2. Add a disturbance variable Q' and substitute $(Q_{0} + Q^{'})$ into governing equations. Set BC for Q'.} \\
+        \text{3. From the eqn(s) subtract the basic terms that $Q_{0}$ satisfies identicaly. The disturbance function remains.} \\
+        \text{4. Linearize by assuming $Q^{'} << Q_{0}$ (small disturbances), and neglect $Q^{'2}, Q^{'3}$ etc.} \\
+        \text{5. If linearized disturbance equation is complicated and multidimensional, it can be simplyfied by } \\
+        \text{assuming a form for the disturbances, i.e. wave or perturbation in only one direction.} \\
+        \text{6. Linearized disturbance equation + BC should be homogeneous. Can only be solved for certain specific values }\\
+        \text{of equations parameters. Is an eigenvalueproblem. Find eigenvalues.}\\
+        \text{7. Interpret the eigenvales. Growth is unstable, decay is stable.} \\
+        \text{Plot/map which combinations gives growth and decay.}\\
+    \end{gather*}
     \begin{gather*}
         \textbf{\small Orr-Sommerfeld equation} \\
         (U - c)(v''-\alpha^2 v) - U''v + \frac{i\nu}{\alpha}(v''''-2\alpha^2v''+\alpha^4v) = 0
     \end{gather*}
     \begin{gather*}
-        \textbf{\small Inviscid OS (Rayleigh) equation} \\
+        \textbf{Orr-Sommerfeld conditions:} \\
+        \text{Duct flows: } v(\pm h) = v'(\pm h) = 0 \\
+        \text{Boundary layers: } v(0) = v'(0) = 0 \text{, } v(\infty) = v'(\infty) = 0 \\
+        \text{Free-shear layers: } v(\pm \infty) = v'(\pm \infty) = 0 \\
+    \end{gather*}
+    \begin{gather*}
+        \textbf{\small Inviscid OS (Rayleigh) equation or infinite Reynolds number} \\
         (U - c)(v''-\alpha^2 v) - U''v = 0
     \end{gather*}
     \begin{gather*}
@@ -244,6 +365,17 @@
     \end{gather*}
 \end{multicols*}
 
-% New page
-TODO: Add Einstein notation, kronecker delta, $\sigma '$, Couette flow?, Bessel functions, $\lambda$, Prandtl og gutta
+\begin{center}
+    \Large
+    \textbf{Shooting method}
+    \vspace{0.5cm}
+\end{center}
+\begin{multicols*}{2}
+    \begin{gather*}
+        \textbf{Shooting method} \\
+        \text{Most solvers require ICs. The BC has to be replaced by a guessed IC. An iterative process uses this guess} \\
+        \text{to improve the guess, until you find an IC that is close enough to the BC prescribed.} \\ %From exam 2019
+    \end{gather*}
+\end{multicols*}
+
 \end{document}
