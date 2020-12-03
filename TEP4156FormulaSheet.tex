@@ -77,6 +77,7 @@
         \sigma_{ij}' \derivative{ u_i}{x_j}  - \derivative{ q_k}{x_k}
     \end{gather*}
     \begin{gather*}
+        \textbf{Dissipation related. Positive for newtonian fluids:} \\
         \sigma_{ij}' \derivative{ u_i}{x_j} \geq 0
     \end{gather*}
     \begin{gather*}
@@ -93,7 +94,7 @@
         \text{Re} \rightarrow 0: \quad \vec{\nabla}p = \mu \vec{\nabla}^2 \vec{u}
     \end{gather*}
     \begin{gather*}
-        \textbf{\small Boundary layer equation} \\
+        \textbf{\small Boundary layer equation (LN s. 113)} \\
         u\derivative{ u}{x} + v \derivative{ u}{y} =
         U \frac{dU}{dx} + \nu \derivative{^2 u}{y^2}
     \end{gather*}
@@ -163,11 +164,12 @@
     \end{gather*}
     \begin{gather*}
         \textbf{\small Drag coefficient (flat plate)} \\
-        C_D = \frac{1}{L}\int_0^L C_f dx, \quad C_f = 2\derivative{ \theta}{x}
+        C_D = \frac{1}{L}\int_0^L C_f dx, \quad C_f = 2\derivative{ \theta}{x} \\
+        C_D = \frac{F_z}{\rho U^2\pi a^2 /2} = 24/Re \text{ (Creeping flow)}
     \end{gather*}
     \begin{gather*}
         \textbf{\small Shape factor} \\
-        H = \frac{\delta *}{\theta}
+        H = \frac{\delta *}{\theta} > 1
     \end{gather*}
     \begin{gather*}
         \textbf{\small Laminar boundary layer} \\
@@ -185,6 +187,14 @@
     \begin{gather*}
         \textbf{Vorticity vector: } \\ %Exam 2017 1c)
         \vec{w} = \nabla \times \vec{u}
+    \end{gather*}
+    \begin{gather*}
+        \textbf{At incompressible limit:} \\
+        dh = c_pdT
+    \end{gather*}
+    \begin{gather*}
+        \textbf{Fouriers law: } \\
+        \vec{q} = -k \vec{\nabla} T
     \end{gather*}
 \end{multicols*}
 
@@ -235,147 +245,230 @@
     \textbf{Notes}
     \vspace{0.5cm}
 \end{center}
-\begin{multicols*}{2}
-    \begin{gather*}
-        \textbf{\small Strain rate tensor} \\
-        \text{Diagonal terms related to dilatation (extension) of fluis particle.} \\
-        \text{Off-diagonal terms related to shear-strain rates.} \\
-        \text{Dilatation rates $\varepsilon_{ii}$ are $\derivative{ u_i}{x_i}$}\\
-        \text{Assuming incompressible flow of Newtonian fluid gives viscous part of stress tensor $\sigma_{ij}$:} \\
-        \sigma_{ij}' = 2\mu\epsilon_{ij} \implies \sigma_{ij} = -p\delta_{ij} + 2\mu\epsilon_{ij}
-    \end{gather*}
-    \begin{gather*}
-        \textbf{\small Force required to pull sheet/plate with constant speed} \\
-        \text{Force balance, assuming only shear stress} \\
-        \text{Shear stress:} \\
-        \tau_{xy} = \mu(\derivative{u}{y} + \derivative{v}{x}) \approx \mu\derivative{u}{y} \\
-        \text{Last approximation justified by:} \\
-        \derivative{u}{x} + \derivative{v}{y} = 0 \implies v = -\int\derivative{u}{x}dy \sim \frac{U}{L}\delta \\
-        \implies \derivative{u}{y} + \derivative{v}{x} \sim \frac{U}{\delta} + \frac{\frac{\delta}{L}U}{L}, \frac{\delta}{L} << 1 \\
-        % \text{or: (exam 2015)} \\
-        % \derivative{u}{x} \sim \frac{U}{L} \text{ and } \derivative{u}{y} \sim \frac{U}{\delta}
-        % \implies \frac{\derivative{u}{x}}{\derivative{u}{y}} \sim \frac{U/L}{U/\delta} = \frac{\delta}{L} << 1 \\
-        % F_{pull} = \int_0^B\int_0^L\mu\derivative{x}{y}\arrowvert_{y = 0} dxdy
-    \end{gather*}
-    \begin{gather*}
-        \textbf{\small Disturbances} \\
-        \text{We have a disturbance on the form: } \\
-        \hat{v}(x,y,t) = v(y)exp(i\alpha(x - ct)) \\
-        \text{Disturbace is assumed small, periodic on the form of a wave in x-direction. Amplitude only dependant of y.} \\
-        \text{c: propagation speed (complex), $\alpha$: wave number (real)}
-    \end{gather*}
-    \begin{gather*}
-        \textbf{Differentiation:} \\
-        2u\derivative{u}{x} = \derivative{(u)^2}{x} \\
-        v\derivative{u}{y} + u\derivative{v}{y} = \derivative{(uv)}{y}
-    \end{gather*}
-    \begin{gather*}
-        \sigma_{ij}' = \sigma_{ji}' \\
-        \text{(At least for incompressible newtonian fluid, exam 2015)}
-    \end{gather*}
-    \begin{gather*}
-        \textbf{Flow separation} \\
-        \tau_{w}\arrowvert_{xs} = 0 \\
-        \text{For Twaites this corresponds to: } \\
-        S(\lambda) = 0 \implies \lambda = -0.09 \\
-        \textbf{Backflow} \\
-        \text{If flow between horizontal parallel plates with top plate} \\
-        \text{moving, back flow occurs when shear at lower plate vanishes is zero: } \\
-        \tau_{w} = 0
-    \end{gather*}
-\end{multicols*}
+\begin{gather*}
+    \textbf{\small Strain rate tensor} \\
+    \text{Diagonal terms related to dilatation (extension) of fluis particle.} \\
+    \text{Off-diagonal terms related to shear-strain rates.} \\
+    \text{Dilatation rates $\varepsilon_{ii}$ are $\derivative{ u_i}{x_i}$}\\
+    \text{Assuming incompressible flow of Newtonian fluid gives viscous part of stress tensor $\sigma_{ij}$:} \\
+    \sigma_{ij}' = 2\mu\epsilon_{ij} \implies \sigma_{ij} = -p\delta_{ij} + 2\mu\epsilon_{ij}
+\end{gather*}
+\begin{gather*}
+    \textbf{\small Force required to pull sheet/plate with constant speed} \\
+    \text{Force balance, assuming only shear stress} \\
+    \text{Shear stress:} \\
+    \tau_{xy} = \mu(\derivative{u}{y} + \derivative{v}{x}) \approx \mu\derivative{u}{y} \\
+    \text{Last approximation justified by:} \\
+    \derivative{u}{x} + \derivative{v}{y} = 0 \implies v = -\int\derivative{u}{x}dy \sim \frac{U}{L}\delta \\
+    \implies \derivative{u}{y} + \derivative{v}{x} \sim \frac{U}{\delta} + \frac{\frac{\delta}{L}U}{L}, \frac{\delta}{L} << 1 
+    % \text{or: (exam 2015)} \\
+    % \derivative{u}{x} \sim \frac{U}{L} \text{ and } \derivative{u}{y} \sim \frac{U}{\delta}
+    % \implies \frac{\derivative{u}{x}}{\derivative{u}{y}} \sim \frac{U/L}{U/\delta} = \frac{\delta}{L} << 1 \\
+    % F_{pull} = \int_0^B\int_0^L\mu\derivative{x}{y}\arrowvert_{y = 0} dxdy
+\end{gather*}
+\begin{gather*}
+    \textbf{\small Disturbances} \\
+    \text{We have a disturbance on the form: } \\
+    \hat{v}(x,y,t) = v(y)exp(i\alpha(x - ct)) \\
+    \text{Disturbace is assumed small, periodic on the form of a wave in x-direction. Amplitude only dependant of y.} \\
+    \text{c: propagation speed (complex), $\alpha$: wave number (real)}
+\end{gather*}
+\begin{gather*}
+    \textbf{Differentiation:} \\
+    2u\derivative{u}{x} = \derivative{(u)^2}{x} \\
+    v\derivative{u}{y} + u\derivative{v}{y} = \derivative{(uv)}{y}
+\end{gather*}
+\begin{gather*}
+    \sigma_{ij}' = \sigma_{ji}' \\
+    \text{(At least for incompressible newtonian fluid, exam 2015)}
+\end{gather*}
+\begin{gather*}
+    \textbf{Flow separation} \\
+    \tau_{w}\arrowvert_{xs} = 0 \\
+    \text{For Twaites this corresponds to: } \\
+    S(\lambda) = 0 \implies \lambda = -0.09 \\
+    \textbf{Backflow} \\
+    \text{If flow between horizontal parallel plates with top plate} \\
+    \text{moving, back flow occurs when shear at lower plate vanishes is zero: } \\
+    \tau_{w} = 0
+\end{gather*}
+\begin{gather*}
+    \textbf{BL thickness:} \\
+    \text{Where u/U = 0.99}
+\end{gather*}
+\begin{gather*}
+    \text{$v \approx 0$ inside boundary layer.}
+\end{gather*}
 
+
+\newpage
 \begin{center}
     \Large
     \textbf{Types of flow}
     \vspace{0.5cm}
 \end{center}
-\begin{multicols*}{2}
-    \begin{gather*}
-        \textbf{Free shear flow} \\
-        \text{Parallel streams} \\
-        \text{Boundary conditions:} \\
-        u_{1}(0) = u_{2}(0), \mu_{1}\derivative{u_{1}}{y}\arrowvert_{0} = \mu_{2}\derivative{u_{2}}{y}\arrowvert_{0}
-    \end{gather*}
-    \begin{gather*}
-        \textbf{Laminar (2D) jet} \\
-        u_{max} = u(x,0) \\
-        \text{Conserved quantity: momentum flux (no external forces)} \\
-        J = \int_{-\infty}^{\infty}\rho u^{2}dy \\
-        f''' + f''f + f'^{2} = 0, f(0) = f'(0) = f''(0) = 0 \\
-        \text{Analytic solution: } \\
-        f(\eta) = 2a tanh(a\eta), a\sim\sqrt[3]{J}
-    \end{gather*}
-    \begin{gather*}
-        \textbf{Falkner-Skan flow} \\
-        \text{Parallel flow "splitting" into two branches with angle $\theta{s}$ between them.} \\
-        f''' + ff'' + \beta(1 - f'^{2}) = 0, \beta = \frac{\theta_s}{\pi/2} = \frac{2m}{m + 1}, m = \frac{\theta_s}{\pi - \theta_s} \\
-        m = 0 \implies \text{ zero wedge angle = Blasius} \\
-        m = 1 \implies \text{ $\pi$ wedge angle = Hiemenz} \\
-        \psi = \sqrt{\frac{2}{m+1} \nu U(x) x}f(\eta), \eta = y \sqrt{\frac{m+1}{2}\frac{U(x)}{\nu x}} \\
-        \textbf{Boundary conditions:} \\
-        f(0) = f'(0) = 0, f'(\eta \rightarrow \infty) = 1 \\
-    \end{gather*}
-\end{multicols*}
+\begin{gather*}
+    \textbf{Couette flow: } \\
+    \text{"Still + moving plate", fully developed, plates at $\pm h$} \\
+    \text{no-slip: } u(-h) = 0, u(h) = U_0 \text{, no penetration: } v(\pm h) = 0 \\ 
+    \text{same temperature: } T(h) = T_1, T(-h) = T_0 \\
+    \text{Brinkman number: }\\
+    Br = \frac{\mu U_0^2}{k \Delta T} = dissipation/conduction \textbf{ (LN s. 64)}
+\end{gather*}
+\begin{gather*}
+    \textbf{Flow in a pipe (Hagen-Poiseuille flow): (LN s. 67)} 
+\end{gather*}
+\begin{gather*}
+    \textbf{Stoke's 2nd problem: (LN s. 77)} \\
+    \text{Oscillating plate, parallel streamlines, separation ansatz} 
+\end{gather*}
+\begin{gather*}
+    \textbf{Stagnation point flow (Hiemenz flow): (LN s. 80)}
+\end{gather*}
+\begin{gather*}
+    \textbf{Creeping flow: (LN s. 91)} \\
+    \nabla^2P = 0 \\
+    \nabla^2\vec{\omega} = 0 \\
+    \text{Stokes flow around a sphere (LN s. 93) $->$ Drag on sphere and sinking velocity of sphere in fluid}
+\end{gather*}
+\begin{gather*}
+    \textbf{Boundary layer flow: }
+\end{gather*}
+\begin{gather*}
+    \textbf{Flat plate (Blasius) flow: (LN s. 114)} \\
+    \psi = \sqrt{2\nu U x} f(\eta), \eta = y\sqrt{\frac{U}{2\nu x}} \\
+    u = Uf', v = \sqrt{\frac{2\nu U}{x}}(\eta f' - f) \\
+    f''' + f''f = 0, f'(\infty) = 1, f(0) = 0, f'(0) = 0
+\end{gather*}
+\begin{gather*}
+    \textbf{Falkner-Skan flow: (LN s. 120)} \\
+    \text{Parallel flow "splitting" into two branches with angle $\theta{s}$ between them.} \\
+    f''' + ff'' + \beta(1 - f'^{2}) = 0, \beta = \frac{\theta_s}{\pi/2} = \frac{2m}{m + 1}, m = \frac{\theta_s}{\pi - \theta_s} \\
+    m = 0 \implies \text{ zero wedge angle = Blasius} \\
+    m = 1 \implies \text{ $\pi$/2 wedge angle = Hiemenz} \\
+    \psi = \sqrt{\frac{2}{m+1} \nu U(x) x}f(\eta), \eta = y \sqrt{\frac{m+1}{2}\frac{U(x)}{\nu x}} \\
+    \delta, \delta*, C_f, \theta \text{ relations LN s. 152} \\
+    \textbf{Boundary conditions:} \\
+    f(0) = f'(0) = 0, f'(\eta \rightarrow \infty) = 1 
+\end{gather*}
+\begin{gather*}
+    \textbf{Twaites method: (LN s. 154)} \\
+    \theta^2 = \frac{0.45 \nu}{U(x)^6} \int_{0}^{x}U(x)^5dx \\
+    \lambda = \frac{\theta^2 \derivative{U}{x}}{\nu}, \delta^* = \theta H (\lambda), \tau_w = \frac{\mu U}{\theta} S(\lambda) \\
+    S(\lambda) = (\lambda + 0.09)^{0.62} \text{, flow separation at $\tau_w = 0 \implies S = 0 \implies \lambda = - 0.09$} \\
+    H(\lambda) = 2+4.14z - 83.5z^2 + 854z^3 -3337z^4 + 4576z^5, z = (0.25 -\lambda) \text{ (check this relation before use...)}
+\end{gather*}
+\begin{gather*}
+    \textbf{Free shear flow: (LN s. 164)} \\
+    \text{Parallel streams} \\
+    \text{Boundary conditions:} \\
+    u_{1}(0) = u_{2}(0), \mu_{1}\derivative{u_{1}}{y}\arrowvert_{0} = \mu_{2}\derivative{u_{2}}{y}\arrowvert_{0}, u_j(\infty) = U_j, v_j(0) = 0
+\end{gather*}
+\begin{gather*}
+    \textbf{Laminar (2D) jet: (LN s. 167)} \\
+    \text{Conserved quantity: momentum flux (no external forces)} \\
+    J = \int_{-\infty}^{\infty}\rho u^{2}dy \\
+    f''' + f''f + f'^{2} = 0, f(0) = f'(0) = f''(0) = 0 \\
+    \text{Analytic solution: } \\
+    \text{f($\eta$) = 2a tanh(a$\eta$), $a = (\frac{9J}{16\sqrt{\rho \mu}})^{\frac{1}{3}}\sim\sqrt[3]{J}$} \\
+    u_{max} = u(x,0) = \frac{2}{3} a^2x^{-\frac{1}{3}} \sim x^{-\frac{1}{3}}
+\end{gather*}
 
+
+\newpage
 \begin{center}
     \Large
     \textbf{Stability notes}
     \vspace{0.5cm}
 \end{center}
-\begin{multicols*}{2}
-    \begin{gather*}
-        \textbf{Reynolds number:} \\
-        Re = \frac{\rho u L}{\mu} = \frac{u L}{\nu}\\
-    \end{gather*}
-    \begin{gather*}
-        \textbf{7 step procedure:} \\
-        \text{1. We seek to examine the stability of a basic solution to the physical problem, $Q_{0}$.} \\
-        \text{2. Add a disturbance variable Q' and substitute $(Q_{0} + Q^{'})$ into governing equations. Set BC for Q'.} \\
-        \text{3. From the eqn(s) subtract the basic terms that $Q_{0}$ satisfies identicaly. The disturbance function remains.} \\
-        \text{4. Linearize by assuming $Q^{'} << Q_{0}$ (small disturbances), and neglect $Q^{'2}, Q^{'3}$ etc.} \\
-        \text{5. If linearized disturbance equation is complicated and multidimensional, it can be simplyfied by } \\
-        \text{assuming a form for the disturbances, i.e. wave or perturbation in only one direction.} \\
-        \text{6. Linearized disturbance equation + BC should be homogeneous. Can only be solved for certain specific values }\\
-        \text{of equations parameters. Is an eigenvalueproblem. Find eigenvalues.}\\
-        \text{7. Interpret the eigenvales. Growth is unstable, decay is stable.} \\
-        \text{Plot/map which combinations gives growth and decay.}\\
-    \end{gather*}
-    \begin{gather*}
-        \textbf{\small Orr-Sommerfeld equation} \\
-        (U - c)(v''-\alpha^2 v) - U''v + \frac{i\nu}{\alpha}(v''''-2\alpha^2v''+\alpha^4v) = 0
-    \end{gather*}
-    \begin{gather*}
-        \textbf{Orr-Sommerfeld conditions:} \\
-        \text{Duct flows: } v(\pm h) = v'(\pm h) = 0 \\
-        \text{Boundary layers: } v(0) = v'(0) = 0 \text{, } v(\infty) = v'(\infty) = 0 \\
-        \text{Free-shear layers: } v(\pm \infty) = v'(\pm \infty) = 0 \\
-    \end{gather*}
-    \begin{gather*}
-        \textbf{\small Inviscid OS (Rayleigh) equation or infinite Reynolds number} \\
-        (U - c)(v''-\alpha^2 v) - U''v = 0
-    \end{gather*}
-    \begin{gather*}
-        \textbf{\small Inviscid stability theorem} \\
-        \text{Condition 1: $U''(y_p) = 0$ } \\
-        \text{Condition 2: $U''\cdot(U-U(y_p)) < 0$ somewhere } \\
-        \text{We know almost 100\% that the flow is instable}\\
-        \text{if both conditions are met. If not, we can not} \\
-        \text{draw any conlusions.}
-    \end{gather*}
-\end{multicols*}
+\begin{gather*}
+    \textbf{Reynolds number:} \\
+    Re = \frac{\rho u L}{\mu} = \frac{u L}{\nu}\\
+    \textbf{Critical Re: }
+    \text{Pipe flow: 2300, Couette flow: 1500, Blasius: 500 000}
+\end{gather*}
+\begin{gather*}
+    \textbf{7 step procedure:} \\
+    \text{1. We seek to examine the stability of a basic solution to the physical problem, $Q_{0}$.} \\
+    \text{2. Add a disturbance variable Q' and substitute $(Q_{0} + Q^{'})$ into governing equations. Set BC for Q'.} \\
+    \text{3. From the eqn(s) subtract the basic terms that $Q_{0}$ satisfies identicaly. The disturbance function remains.} \\
+    \text{4. Linearize by assuming $Q^{'} << Q_{0}$ (small disturbances), and neglect $Q^{'2}, Q^{'3}$ etc.} \\
+    \text{5. If linearized disturbance equation is complicated and multidimensional, it can be simplyfied by } \\
+    \text{assuming a form for the disturbances, i.e. wave or perturbation in only one direction.} \\
+    \text{6. Linearized disturbance equation + BC should be homogeneous. Can only be solved for certain specific values }\\
+    \text{of equations parameters. Is an eigenvalueproblem. Find eigenvalues.}\\
+    \text{7. Interpret the eigenvales. Growth is unstable, decay is stable.} \\
+    \text{Plot/map which combinations gives growth and decay.}\\
+\end{gather*}
+\begin{gather*}
+    \textbf{Kelvin-Helmholtx Instability (s. 179, White 5-1.2)} \\
+    \text{stability og parallel flows, $\nu = 0$ } \\
+    \alpha = 2\pi/\lambda \text{, $\lambda$: wavelength of disturbance} \\
+    \alpha_{crit}=\sqrt{\frac{g(\rho_1-\rho_2)}{\gamma}}, \gamma \text{: Surface tension coefficient, $\alpha$: wavenumber} \\
+    \Delta U_{crit} = \sqrt{2\frac{\rho_1+\rho_2}{\rho_1 \rho_2}\sqrt{\gamma (\rho_1 - \rho_2)g}} \textbf{ (LN s. 186)} \\
+    \text{Crit values represent the critical value on the thumb-plot.} \\
+    \text{Unstable for $\sigma_2^2 < 0$, which corresponds to: } \\
+    (U_2 - U_1)^2 > \frac{[g(\rho_1-\rho_2) + \alpha^2\gamma](\rho_1 + \rho_2)}{\alpha \rho_1 \rho_2}
+\end{gather*}
+\begin{gather*}
+    \textbf{Unsteady Bernoulli for incompressible flow: } \\
+    \rho \derivative{\phi}{t} + p + \frac{1}{2} \rho V^2 + \rho g h = const \\ 
+    V = \nabla \phi, \phi \text{: Velocity potential} 
+\end{gather*}
+\begin{gather*}
+    \textbf{\small Orr-Sommerfeld equation} \\
+    (U - c)(v''-\alpha^2 v) - U''v + \frac{i\nu}{\alpha}(v''''-2\alpha^2v''+\alpha^4v) = 0 \\ 
+    \text{c: wave speed, c = $\omega/\alpha$, $\omega$: frequency, (c is an eigenvalue?), Stefan uses $\sigma$ as $\omega$} \\
+    \textbf{Structure of solution:} \\
+    \text{Fix(Re, $\alpha$), find v(y) and $c = c_r + ic_i$, $e^{i(\alpha x - c t)} \implies c_i > 0$: growth, $c_i < 0$: decay } \\ 
+    \text{Do parameter scan in (Re, $\alpha$) - space} \\
+    \text{$\alpha$ complex can be chosen, allows for spatial growth instead of temporal}
+\end{gather*}
+\begin{gather*}
+    \textbf{Orr-Sommerfeld conditions:} \\
+    \text{Duct flows: } v(\pm h) = v'(\pm h) = 0 \\
+    \text{Boundary layers: } v(0) = v'(0) = 0 \text{, } v(\infty) = v'(\infty) = 0 \\
+    \text{Free-shear layers: } v(\pm \infty) = v'(\pm \infty) = 0 \\
+\end{gather*}
+\begin{gather*}
+    \textbf{\small Inviscid OS (Rayleigh) equation or infinite Reynolds number} \\
+    (U - c)(v''-\alpha^2 v) - U''v = 0
+\end{gather*}
+\begin{gather*}
+    \textbf{\small Inviscid stability theorem} \\
+    \text{These conditions are required for instability:} \\
+    \text{Condition 1: $U''(y_p) = 0$ (A point of inflection is required for $c_i \neq 0$ to exist)} \\
+    \text{Condition 2: $U''\cdot(U-U(y_p)) < 0$ somewhere } \\
+    \text{We know almost 100\% that the flow is instable}\\
+    \text{if both conditions are met. If not, we can not} \\
+    \text{draw any conlusions.} \\
+    \textbf{If thunb curve is closed, it is inviscidly stable, if open, inviscidly unstable (?)}
+\end{gather*}
 
+\newpage
 \begin{center}
     \Large
-    \textbf{Shooting method}
+    \textbf{Shooting method (LN s. 124)}
     \vspace{0.5cm}
 \end{center}
-\begin{multicols*}{2}
-    \begin{gather*}
-        \textbf{Shooting method} \\
-        \text{Most solvers require ICs. The BC has to be replaced by a guessed IC. An iterative process uses this guess} \\
-        \text{to improve the guess, until you find an IC that is close enough to the BC prescribed.} \\ %From exam 2019
-    \end{gather*}
-\end{multicols*}
+\begin{gather*}
+    \textbf{Why shooting method?} \\
+    \text{Most solvers require ICs. The BC has to be replaced by a guessed IC. An iterative process uses this guess} \\
+    \text{to improve the guess, until you find an IC that is close enough to the BC prescribed.} \\ %From exam 2019
+\end{gather*}
+\begin{gather*}
+    \textbf{Approach: } \\
+    \text{Reduce system to first order ODEs.} \\
+    \text{Use shooting method.} \\
+    \text{Use a smart choice for large but finite $\infty$.} \\
+\end{gather*}
+\begin{gather*}
+    \textbf{Shooting method: } \\
+    \text{1. Guess one initial condition for T'(0), P1, and solve for T(end), Q1.} \\
+    \text{2. Guess second initial condition for T'(0), P2, and solve for T(end), Q2.} \\ 
+    \text{3. Interpolate for guesses to get better guess P3, } P3 = \frac{QExact(end)-Q2}{Q2-Q1}(P2-P1) + P2\\
+    \text{4. If nonliear ODE, iterate until convergence:} \\
+    P_{i+1} = P_i + \frac{QExact(end)-Q_i}{Q_i-Q_{i-1}}(P_i-P_{i-1}) + P_i \text{ (Secant method)}\\
+\end{gather*}
 
 \end{document}
